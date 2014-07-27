@@ -1,5 +1,6 @@
 class WeekendController < ApplicationController
   get '/' do
-    erb :'weekend/index'
+    date = Time.now
+    erb :'weekend/index', :locals => {:date => date}
   end
 end
