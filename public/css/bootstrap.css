@@ -899,7 +899,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: darksalmon;
 }
 input,
 button,
@@ -4096,7 +4096,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #777;
+  color: darksalmon;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
