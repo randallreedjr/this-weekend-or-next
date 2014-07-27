@@ -1,5 +1,5 @@
 <%= erb :'layouts/_header' %>
-Today is <%= weekend.format %>
-This weekend:
-Next weekend:
+<p>Today is <%= weekend.format %></p>
+<p>This weekend: <%= weekend.this_weekend %></p>
+<p>Next weekend: <%= weekend.next_weekend %></p>
 <%= erb :'layouts/_footer' %>
