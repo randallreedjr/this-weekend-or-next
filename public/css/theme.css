@@ -36,7 +36,7 @@ body {
   text-indent: 20px;
 }
 
-.about_div {
+.about-div {
   background-color: #333;
   border-radius: 10px;
   color: #fff;
@@ -44,13 +44,13 @@ body {
   overflow: scroll;
 }
 
-.left_about {
+.left-about {
   height: 400px;
   float: left;
   width: 40%;
 }
 
-.right_about {
+.right-about {
   height: 400px;
   float: right;
   width: 55%;
@@ -60,7 +60,7 @@ body {
   text-align: center;
 }
 
-.white_div {
+.white-div {
   background-color: #fff;
   border-radius: 6px;
   margin: 1%;
@@ -70,8 +70,4 @@ body {
 .row {
   padding: 0;
   margin: 0;
-}
-
-.navbar-brand {
-  color: darksalmon;
 }
