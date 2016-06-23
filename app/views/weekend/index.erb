@@ -6,32 +6,40 @@
       </div>
     </div>
 
-    <div class="container center">
-      <div class="row">
+    <div class="container">
+      <div class="row timezone-row">
         <div class="col-md-12 white-div">
           <h2 class="center">Select timezone</h2>
-          <form action='/' method='post'>
-            <select name="timezone" class="form-control" id="select-timezone">
-              <% timezone_list.each do |timezone| %>
-                <option value="<%= timezone %>" <%= timezone == current_timezone ? 'selected' : ''%>><%= timezone %></option>
-              <% end %>
-            </select>
-            <input type='submit' class="btn" id="submit-timezone">
-          </form>
+          <div class="center">
+            <form action='/' method='post'>
+              <select name="timezone" class="form-control" id="select-timezone">
+                <% timezone_list.each do |timezone| %>
+                  <option value="<%= timezone %>" <%= timezone == current_timezone ? 'selected' : ''%>><%= timezone %></option>
+                <% end %>
+              </select>
+              <input type='submit' class="btn" id="submit-timezone">
+            </form>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 white-div">
-          <h2 class="center">Today</h2>
-          <h4><%= weekend.today %></h4>
+        <div class="col-sm-4">
+          <div class="white-div center weekend">
+            <h2>Today</h2>
+            <h4><%= weekend.today %></h4>
+          </div>
         </div>
-        <div class="col-md-4 white-div">
-          <h2 class="center">This Weekend</h2>
-          <h4><%= weekend.this_weekend %></h4>
+        <div class="col-sm-4">
+          <div class="white-div center weekend">
+            <h2>This Weekend</h2>
+            <h4><%= weekend.this_weekend %></h4>
+          </div>
         </div>
-        <div class="col-md-4 white-div">
-          <h2 class="center">Next Weekend</h2>
-          <h4><%= weekend.next_weekend %></h4>
+        <div class="col-sm-4">
+          <div class="white-div center weekend">
+            <h2>Next Weekend</h2>
+            <h4><%= weekend.next_weekend %></h4>
+          </div>
         </div>
       </div>
 <%= erb :'layouts/_footer' %>
