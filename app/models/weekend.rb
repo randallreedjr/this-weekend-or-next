@@ -1,39 +1,21 @@
 class Weekend
-  
-  @@format = "%A, %B %e, %Y"
-  def initialize
-    @date = Date.today
+
+  attr_reader :time, :timezone, :date_format, :time_format
+
+
+  def initialize(timezone = 'Eastern Time (US & Canada)')
+    @date_format = "%A, %B %e, %Y"
+    @time_format = "%l:%M %P %Z %A, %B %e, %Y"
+    @timezone = timezone
+    @time = Time.now.in_time_zone(timezone)
     set_this_weekend
     set_next_weekend
   end
 
-  def format
-    return @date.strftime(@@format)
-  end
-
   def set_this_weekend
-    if @date.monday?
-      @this_weekend_start = @date.next_day(4)
-      @this_weekend_end = @date.next_day(6)
-    elsif @date.tuesday?
-      @this_weekend_start = @date.next_day(3)
-      @this_weekend_end = @date.next_day(5)
-    elsif @date.wednesday?
-      @this_weekend_start = @date.next_day(2)
-      @this_weekend_end = @date.next_day(4)
-    elsif @date.thursday?
-      @this_weekend_start = @date.next_day(1)
-      @this_weekend_end = @date.next_day(3)
-    elsif @date.friday?
-      @this_weekend_start = @date
-      @this_weekend_end = @date.next_day(2)
-    elsif @date.saturday?
-      @this_weekend_start = @date.prev_day
-      @this_weekend_end = @date.next_day
-    elsif @date.sunday?
-      @this_weekend_start = @date.prev_day(2)
-      @this_weekend_end = @date
-    end
+    day_of_the_week = date.wday > 0 ? date.wday : 7
+    @this_weekend_start = date.next_day(5 - day_of_the_week)
+    @this_weekend_end = date.next_day(7 - day_of_the_week)
   end
 
   def set_next_weekend
@@ -41,11 +23,33 @@ class Weekend
     @next_weekend_end = @this_weekend_end.next_day(7)
   end
 
+  def today
+    return "#{@time.strftime(time_format)}"
+  end
+
   def this_weekend
-    return "#{@this_weekend_start.strftime(@@format)} - #{@this_weekend_end.strftime(@@format)}"
+    return "#{@this_weekend_start.strftime(date_format)} - #{@this_weekend_end.strftime(date_format)}"
   end
 
   def next_weekend
-    return "#{@next_weekend_start.strftime(@@format)} - #{@next_weekend_end.strftime(@@format)}"
+    return "#{@next_weekend_start.strftime(date_format)} - #{@next_weekend_end.strftime(date_format)}"
+  end
+
+  private
+
+  def date
+    time.to_date
+  end
+
+  def date_format
+    "%A, %B %e, %Y"
+  end
+
+  def time_format
+    "%l:%M %P %Z"
+  end
+
+  def datetime_format
+    "#{time_format} #{date_format}"
   end
 end

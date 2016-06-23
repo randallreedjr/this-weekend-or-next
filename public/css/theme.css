@@ -71,3 +71,15 @@ body {
   padding: 0;
   margin: 0;
 }
+
+#select-timezone {
+  width: 79%;
+  display: inline;
+}
+
+#submit-timezone {
+  width: 20%;
+  display: inline;
+  color: darksalmon;
+  background-color: #393939;
+}
