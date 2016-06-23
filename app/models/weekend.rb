@@ -24,7 +24,7 @@ class Weekend
   end
 
   def today
-    return "#{@time.strftime(time_format)}"
+    return "#{@time.strftime(datetime_format)}"
   end
 
   def this_weekend

@@ -63,8 +63,8 @@ body {
 .white-div {
   background-color: #fff;
   border-radius: 6px;
-  margin: 1%;
   min-height:120px;
+  padding: 10px;
 }
 
 .row {
@@ -72,8 +72,12 @@ body {
   margin: 0;
 }
 
+.row.timezone-row, .weekend {
+  margin-bottom: 30px;
+}
+
 #select-timezone {
-  width: 79%;
+  width: 59%;
   display: inline;
 }
 
@@ -82,4 +86,10 @@ body {
   display: inline;
   color: darksalmon;
   background-color: #393939;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .weekend {
+    height: 164px;
+  }
 }
